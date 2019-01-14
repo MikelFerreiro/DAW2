@@ -1,0 +1,60 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	text-align: center;
+	color:black;
+}
+
+header {
+	background: lawngreen;
+	border: 1px solid black;
+	font-size: 200%;
+}
+
+.gris {
+	background: gray;
+	border: 1px solid black;
+}
+
+.cyan {
+	background: cyan;
+	border: 1px solid black;
+}
+
+.naranja {
+	background: orange;
+	border: 1px solid black;
+}
+
+.rojo {
+	background: red;
+	border: 1px solid black;
+	font-size: 600%;
+}
+.footer{
+	background: yellow;
+	border: 1px solid black;
+	font-size: 200%;
+}
+
+@media (max-width: 768px) {
+	header{
+		background-color: cyan;
+	}
+	#verde{
+		background-color: lawngreen;
+	}
+}
+
+@media (max-width: 576px) {
+	header{
+		background-color: salmon;
+	}
+	#azul{
+		background-color: cyan;
+	}
+	#verde{
+		background-color: red;
+	}
+}

@@ -1,0 +1,13 @@
+h1{
+    border-bottom: 2px solid #00F;
+}
+h2{
+    border:2px solid #AAA;
+}
+#datos{
+    border-top:4px dotted #f00;
+    border-bottom: 4px dotted #f00;
+}
+#contenido{
+    border:2px dashed #0f0;
+}

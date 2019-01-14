@@ -1,0 +1,42 @@
+{% extends "layout.html.twig"%}
+{% block contenido%}
+    <form class="col" >
+        <div class="row">
+            <h2 >Datos vino</h2>
+            <a name="editar" class="btn btn-outline-warning" href="index.php?controller=vinos&action=editar&idVino={{vino["ID_VINO"]}}">Editar</a>
+            <a name="volver" class="btn btn-outline-primary" href="index.php?controller=bodegas&action=detalle&idBodega={{vino["ID_BODEGA"]}}">Volver</a>
+            <a name="eliminar" class="btn btn-outline-danger" href="index.php?controller=vinos&action=borrar&idVino={{vino["ID_VINO"]}}&idBodega={{vino["ID_BODEGA"]}}">Borrar</a>
+        </div>
+        <hr>
+        <div class="col">
+           <div class="row form-group">
+               <label for="nombre">Nombre</label>
+               <input type="text" class="form-control" id="nombre" name="nombre" value="{{vino["NOMBRE"]}}" disabled>
+           </div>
+
+           <div class="row form-group">
+               <label for="descripcion">Descripción</label>
+               <textarea maxlength="200" class="form-control" id="descripcion" name="descripcion" disabled>{{ vino["DESCRIPCION"]}}</textarea>
+           </div>
+
+            <div class="row form-group">
+               <label for="anio">Año</label>
+               <input type="number" class="form-control" id="anio" name="anio" value="{{ vino["ANIO"] }}" disabled>
+           </div>
+
+           <div class="row form-group">
+               <label for="alcohol">Alcohol</label>
+               <input type="number" class="form-control" step="0.01" id="alcohol" name="alcohol" value="{{vino["ALCOHOL"]}}" disabled>
+           </div>
+
+           <div class="row form-group">
+               <label for="tipo">Tipo de vino</label>
+               <input type="text" class="form-control" id="tipo" name="tipo" value="{{vino["TIPO"]}}" disabled>
+           </div>
+
+        </div>
+    </form>
+    <br>
+    <br>
+    <br>
+{%  endblock %}

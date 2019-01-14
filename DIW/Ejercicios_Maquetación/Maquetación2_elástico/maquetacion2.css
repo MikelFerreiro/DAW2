@@ -1,0 +1,24 @@
+body {
+    width:61em;
+    margin:0 auto;
+}
+h1{
+    text-align: center;
+}
+#datosLibro{
+    width:16em;
+    display: inline-block;
+    vertical-align: top;
+}
+#descripcionLibro{
+    width:44em;
+    display: inline-block;
+}
+
+#descripcionLibro li{
+    list-style: none;
+    width: 12em;
+    display: inline-block;
+    margin:0.5em;
+    vertical-align: top;
+}

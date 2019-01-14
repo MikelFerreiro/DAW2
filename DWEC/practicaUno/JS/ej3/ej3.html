@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+</head>
+<body>
+<h2>Cambridge English Center</h2>
+<h3>Formulario de Registro</h3>
+<hr>
+<h4>Sea tan amable de rellenar el siguiente formulario.</h4>
+<form onsubmit="return false">
+    <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required>
+    <label for="dir">Dirección:</label>
+        <input type="text" name="dir" id="dir">
+    <label for="tlfn">Teléfono:</label>
+        <input type="number" name="tlfn" id="tlfn" >
+    <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios"></textarea>
+
+    <button type="submit" name="enviar" id="enviar">Enviar datos</button>
+    <button type="submit" name="borrar" id="borrar" onclick="borrarDatos()">Borrar datos</button>
+</form>
+<script src="ej3.js"></script>
+</body>
+</html>

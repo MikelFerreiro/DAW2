@@ -1,0 +1,25 @@
+body{
+    text-align: center;
+    width:20em;
+    margin: 0 auto;
+}
+ul,ol{
+    width:5em;
+    margin: 0 auto;
+}
+
+.lista-sin{
+    list-style: none;
+}
+.lista-circulos{
+    list-style: circle;
+}
+.lista-cuadrados{
+    list-style: square;
+}
+.lista-romanos{
+    list-style: upper-roman;
+}
+.lista-griegos{
+    list-style: lower-greek;
+}

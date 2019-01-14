@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+}
+html,body,form{
+    width: 100%;
+    height:100%;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ul{
+    list-style: none;
+}
+
+
+#carrito{
+    width:15%;
+    height:50%;
+    background-color: #caedf37a;
+    border-radius: 30px 0px 0px 30px;
+    position: fixed;
+    right: 0;
+    top: 10;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+}
+#articulos{
+    width: 60%;
+    height:100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+#articulos button{
+    width:20%;
+    margin: 1em;
+    background-color: white;
+    border:none;
+}
+body form div img{
+    height:auto;
+    padding: 2em;
+    width: 90%;
+}
+#carrito button{
+    align-self: flex-end;
+}
+.idioma,form >h2{
+    align-self: flex-start;
+    margin:.4em;
+}
+

@@ -1,0 +1,194 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: lightgray;
+    font-family:sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Contenedor */
+main {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main > * {
+  /*Añade aquí las propiedades Flexbox*/
+}
+
+/* Navegación */
+ul.principal {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    background: gray;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu {
+    height: 32px;
+    /*Añade aquí las propiedades Flexbox*/
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px black;
+    margin: 0;
+    padding: 0;
+}
+
+.social {
+  /*Añade aquí las propiedades Flexbox*/
+}
+
+#movil {
+    background-color: gray;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: row;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    flex-shrink: 0;
+}
+
+#movil a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Banner central */
+#banner {
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-image: url(../img/black-cat.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/* Zona contenido (texto) */
+#contenido {
+    padding: 20px;
+    background: gray;
+    color: white;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+#contenido p {
+    margin: 0;
+}
+
+/* Widget newsletter */
+#subscribe {
+    padding: 20px;
+    background: gray;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#subscribe form {
+  /*Añade aquí las propiedades Flexbox*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+#subscribe form > * {
+    margin: 10px;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background: gray;
+    color: white;
+    border-radius: 10px;
+    margin-top: auto;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+}
+
+/* Puntos de ruptura */
+@media (max-width: 768px) {
+    #movil{
+        display: flex;
+        order:1;
+    }
+    ul.principal{display: none;}
+    main{width: 100%;}
+    #subscribe{
+        order:2;
+
+    }
+    #subscribe form {
+        justify-content: space-evenly;
+        align-items: stretch;
+        flex-direction: column;
+    }
+    #banner{
+        order:3;
+    }
+    #contenido{
+        order:4;
+    }
+    footer{
+        order:5;
+    }
+}
+
+@media (max-width: 340px) {
+    #movil{
+
+        order:1;
+    }
+    ul.principal{
+        display: flex;
+        order:2;
+    }
+    #subscribe{
+        order:3;
+
+    }
+    #banner{
+        order:4;
+    }
+    #contenido{
+        order:5;
+    }
+    footer{
+        order:6;
+    }
+    .menu{
+         flex: 1 0 100%;
+         text-align: center;
+     }
+    ul.principal {
+        flex-wrap: wrap;
+    }
+
+}

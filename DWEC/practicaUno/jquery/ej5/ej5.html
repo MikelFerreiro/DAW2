@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+</head>
+<body>
+<h2>Marcar todas las opciones de un formulario</h2>
+<p>A veces un formulario puede interesar marcar todas las opciones posibles. Este código permite hacerlo rapidamente.</p>
+<form onsubmit="return false">
+    <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required>
+    <br>
+    <label for="apellidos">Apellidos:</label>
+        <input type="text" name="apellidos" id="apellidos">
+    <br>
+    <label for="email">Email:</label>
+        <input type="email" name="email" id="email" >
+    <br>
+    <label for="poblacion">Poblacion:</label>
+        <input type="text" name="poblacion" id="poblacion">
+    <br>
+    <label for="provincia">Provincia:</label>
+        <input type="text" name="provincia" id="provincia">
+    <br>
+    <label id="ledad">Edad:</label>
+    <br>
+    <input type="radio" name="edad" id="020">0-20<br>
+    <input type="radio" name="edad" id="2040">20-40<br>
+    <input type="radio" name="edad" id="4060">40-60<br>
+    <input type="radio" name="edad" id="60100">60-100<br>
+    <label id="como">¿Cómo nos has conocido?</label>
+    <br>
+    <input type="checkbox" id="check1" value="ck1">Através de un amigo. <br>
+    <input type="checkbox" id="check2" value="ck2">Através de un buscdor. <br>
+    <input type="checkbox" id="check3" value="ck3">Navegando por la red <br>
+    <input type="checkbox" id="check4" value="ck4">Otros<br>
+
+
+    <button type="submit" name="enviar" id="enviar" onclick="enviarDatos()">Enviar datos</button>
+    <button type="submit" name="borrar" id="borrar" onclick="borrarDatos()">Borrar datos</button>
+</form>
+<script src="ej5.js"></script>
+</body>
+</html>

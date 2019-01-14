@@ -1,0 +1,164 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es"><head>
+    <title>Ejemplo de una página con estructura elástica incluso bordes</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="title" content="Ejemplo de una página con estructura elástica incluso bordes">
+    <meta name="description" content="Ejemplo de una página con estructura elástica incluso bordes">
+    <meta name="author" content="Andrés de la Paz">
+    <meta name="copyright" content="© 2010">
+    <style type="text/css">
+        body {
+            font-family: Times New Roman;
+            font-size: 1em;          /* 1em equivale a 16px por defecto */
+            }
+        div#total {
+            min-width: 40.625em;             /* 650px/16px = 40.625em */
+            border: maroon dashed 0.5em;     /* 8px/16px = 0.5em */
+            }
+        div#cabeza {
+            padding: 0.3125em;              /* 5px/16px = 0.3125em */
+            border: red solid 0.5em;
+            }
+        div#lateral {
+            width: 6.25em;                  /* 100px/16px = 6.25em */
+            height: 100%;
+            padding: 0.3125em;
+            float: left;
+            border: blue solid 0.5em;
+            }
+        div#lateral ul{
+            padding-left: 1em;              /* 16px/16px = 1em */
+            border: green dotted 0.5em;
+            }
+        div#lateral ul li {
+            margin-left: 0;
+            }
+        div#contenido {
+            /* Con el ancho del lateral del ejemplo anterior: 112px/16px = 7em
+            Que es lo mismo que sumar el ancho del lateral más sus dos
+            rellenos y bordes, todo sumado en em's:
+            6.25em + (2 x 0.3125em) + (2 x 0.5em) = 7.875em
+            */
+            margin-left: 7.875em;
+            padding: 0.3125em;
+            border: green solid 0.5em;
+            }
+        div#contenido p {
+            text-align: justify;
+            }
+        div#pie {
+            padding: 0.3125em;
+            border: red solid 0.5em;
+            }
+        div.borra-flotacion {
+            clear: both;
+            }
+    </style>
+
+</head>
+<body>
+    <div id="total">
+	    <div id="cabeza">
+		    <a href="http://www.wextensible.com/"><img src="Ejemplo%20de%20una%20p%C3%A1gina%20con%20estructura%20el%C3%A1stica%20incluso%20bordes_files/wextensible.gif" style="border: gray solid 1px;" alt="wextensible" title="www.wextensible.com" height="40" width="41"></a>
+	        TITULO DE LA PÁGINA
+	    </div>
+	    <div id="lateral">
+	        <ul>
+                <li id="vinculo1"><a href="#vinculo1">Vínculo 1</a></li>
+                <li id="vinculo2"><a href="#vinculo2">Vínculo 2</a></li>
+                <li id="vinculo3"><a href="#vinculo3">Vínculo 3</a></li>
+	        </ul>
+	    </div>
+	    <div id="contenido">
+	        <h2>Ejemplo 2 de una página con estructura elástica</h2>
+
+            <p>Esto es un ejemplo de la teoría sobre <b>estructura de una
+            página web,</b> en su apartado sobre
+            <a href="http://www.wextensible.com/como-se-hace/estructura-pagina-web/fijas-liquidas-elasticas.html#ejemplo-pagina-elastica-2">página elastica</a>.
+            </p>
+            	
+  
+            <h3>Contenido de la página</h3>
+            
+            <p>(Esto es parte del contenido del apartado señalado donde se expone
+            la teoría de este ejemplo.)</p>            
+    
+            <p>Por último tenemos la <b>estructura elástica</b> basada en que podemos declarar
+            las dimensiones de un elemento proporcionales al tamaño de la fuente, es decir
+            al valor de la propiedad <code>font-size.</code> Una característica de esta
+            propiedad es que se hereda automáticamente en todos los elementos que permiten
+            incluir texto. Así podríamos crear una página entera sin declarar en ningún
+            sitio el tamaño de la fuente, en cuyo caso el navegador proporciona un tamaño
+            (y una familia) que viene por defecto. Por ejemplo, suelen poner por defecto la fuente 
+            <i>Times New Roman</i> con un tamaño de unos <i>16px.</i> Este valor se va
+            heredando de padre a hijo, de tal forma que todos los elementos tienen la misma
+            propiedad si no se especifica otra cosa.
+            </p>
+            
+        
+            <p>Entonces podemos usar tamaños de fuentes también relativos. Si en un elemento
+            declaramos <code>font-size: 2em</code> significa que el tamaño de su fuente será
+            <b>dos veces</b> el tamaño de la fuente del contenedor donde está albergado.     
+            Pero además esta medida relativa puede aplicarse a cualquier otra dimensión, como
+            anchos (<code>width</code>), rellenos (<code>padding</code>), márgenes
+            (<code>margin</code>) y gruesos de bordes (<code>border-width</code>), con lo
+            que podemos resolver el problema que teníamos en la estructura líquida con los
+            bordes. Es importante entender que <b>em</b> no es una medida, sino una proporción
+            tal como lo es el porcentaje <b>%</b>.
+            </p>
+            
+
+            <p>Una ventaja de la estructura elástica es que podemos también expresar los
+            gruesos de los bordes en <b>em's</b>. Así tenemos este ejemplo, cuyo código 
+            CSS queda modificado en lo que respecta al grosor de bordes, incluyendo un 
+            grosor excesivo pero necesario para ver el efecto de redimensionamiento.
+            </p>
+
+            <p>Consideraciones finales de la estructura elástica:
+            </p>
+            
+            <ul>
+                <li><b>Control total del ancho mínimo:</b>
+                Podemos especificar un ancho mínimo en em's sin problemas (siempre que el 
+                navegador acepte <code>min-width</code>).
+                </li>
+                <li><b>Ajuste perfecto de los bordes:</b>
+                El grueso de bordes se amplía y reduce con el zoom del navegador. Este es un
+                efecto que no siempre resulta estético, en cuyo caso simplemente basta con
+                ignorarlos, ponerle un dimensionamiento absoluto de 1px o incluso mejor, 
+                poner bordes transparentes o del mismo color que el fondo. En todo caso es una 
+                ventaja que se pueda aplicar.
+                </li>
+                <li><b>El ampliador de texto si funciona ahora:</b>
+                Cómo el redimensionamiento se hace en función del tamaño del texto, cuando
+                aplicamos el ampliador de texto del navegador, el reajuste se produce de manera
+                perfecta con esta estructura, no desbordándose las líneas de los elementos
+                del lateral (los vínculos) como pasaba con las estructuras fijas y líquidas.
+                </li>
+                <li><b>También funciona con el zoom del navegador:</b>
+                Como los anteriores, el zoom del navegador no le afecta en absoluto, es más,
+                el efecto de ampliar el texto y aplicar el zoom es el mismo.
+                </li>
+                <li><b>Es ideal para aplicar un script que haga de zoom:</b>
+                Aunque los navegadores actuales ya lo incorporan, con esta estructura es
+                fácil hacer un script para realizar el zoom directamente sin usar los 
+                propios del navegador. Veremos un ejemplo de esto en el siguiente tema.
+                </li>
+                <li><b>Flexibilidad de los laterales:</b>
+                Cómo los cálculos y la configuración es más simple, es más fácil configurar
+                un esquema con un contenido y 2 laterales por ejemplo. E incluso con ambos 
+                laterales de diferente tamaño. Veremos esto en los siguientes temas.
+                </li>
+            
+            </ul>
+	
+	    </div>
+	    <div class="borra-flotacion"></div>
+	    <div id="pie">
+	        Este es el pie de página
+	    </div>
+    </div>
+
+</body></html>

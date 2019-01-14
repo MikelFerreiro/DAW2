@@ -1,0 +1,31 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+section{
+	background: #DFDFDF;
+	margin: 10px auto;
+	padding: 10px;
+	width: 80%;
+}
+
+li{
+	list-style-type: none;
+}
+
+:root{
+    background-color: red;
+}
+p:not(.sel){
+    background-color: yellow;
+}
+/*--PSEUDO CLASE :ROOT, :EMPTY, :TARGET, :NOT()
+
+El verdadero potencial de esta pseudo-clase es cuando trabajamos con otros 
+documentos o con otros elementos como XML, donde el elemento raíz 
+puede ser diferente de acuerdo a cada situación
+
+
+*/
+

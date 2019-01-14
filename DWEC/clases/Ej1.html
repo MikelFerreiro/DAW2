@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        class Persona {
+            constructor(nombre, edad, sexo, peso, altura) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.dni = this.generarDni();
+                this.sexo = this.comprobarSexo(sexo);
+                this.peso = peso;
+                this.altura = altura;
+            }
+
+            calcularIMC() {
+                let imc = this.peso / (2 * this.altura);
+                return imc <= 25 ? imc < 20 ? -1 : 1 : 1;
+            }
+            esMayorDeEdad(){
+                return this.edad>=18;
+            }
+            comprobarSexo(sexo){
+                let genero;
+                if (sexo==="H"){
+                    genero = "Hombre";
+                }
+                else{
+                    genero = "Mujer";
+                }
+                return genero;
+            }
+            toString(){
+                return "Nombre: "+this.nombre+" Edad: "+this.edad+" DNI: "+this.dni+" Sexo: "+this.sexo+
+                        " Peso: "+this.peso+" Altura: "+this.altura;
+            }
+
+            generarDni(){
+                function formatNumberLength(num, length) {
+                    var r = "" + num;
+                    while ( r.length < length ) {
+                        r = "0" + r;
+                    }
+                    return r;
+                }
+
+                function charDNI(dni) {
+                    var chain = "TRWAGMYFPDXBNJZSQVHLCKET";
+                    var pos = dni % 23;
+                    var letter = chain.substring( pos, pos + 1 );
+                    return letter;
+                }
+
+                function rand_dni() {
+                    let num = Math.floor((Math.random()*100000000));
+                    let sNum = formatNumberLength( num, 8 );
+                    return sNum + charDNI( sNum );
+                }
+
+                let dni = rand_dni();
+
+                return dni;
+            }
+
+            set setNombre(nuevo){
+                this.nombre= nuevo;
+            }
+            set newEdad(nuevo){
+                this.edad= nuevo;
+            }
+            set setDni(nuevo){
+                this.dni= nuevo;
+            }
+            set setSexo(nuevo){
+                this.sexo= nuevo;
+            }
+            set setPeso(nuevo){
+                this.peso= nuevo;
+            }
+            set setAltura(nuevo){
+                this.altura= nuevo;
+            }
+
+        }
+        function newPersona() {
+            debugger;
+            let persona= new Persona(
+                document.getElementById("nombre").value,
+                document.getElementById("edad").value,
+                document.getElementById("Hombre").checked?"H":"M",
+                document.getElementById("peso").value,
+                document.getElementById("altura").value);
+            calcularPeso(persona);
+            alert(persona.esMayorDeEdad()?"Es mayor de edad":"Es menor de edad");
+            alert(persona.toString());
+            debugger;
+            return false;
+        }
+
+        function calcularPeso(persona) {
+            switch (persona.calcularIMC()){
+                case -1:
+                    alert("Estas por debajo de tu peso ideal")
+                    break;
+                case 0:
+                    alert("Estas en tu peso ideal")
+                    break;
+                case 1:
+                    alert("Estas por encima de tu peso ideal")
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="formulario" method="POST" >
+        Nombre
+        <input type="text" id="nombre" required>
+        <br>
+        Edad
+        <input type="number" id="edad" required>
+        <br>
+        sexo
+        <input type="radio" name="sexo" id="Hombre" value="H" checked>Hombre
+        <input type="radio" name="sexo" value="M">Mujer
+        <br>
+        peso
+        <input type="number" id="peso" required>
+        <br>
+        altura
+        <input type="number" id="altura" required>
+
+        <input type="button" id="boton" onclick="newPersona()" value="enviar">
+    </form>
+</body>
+</html>

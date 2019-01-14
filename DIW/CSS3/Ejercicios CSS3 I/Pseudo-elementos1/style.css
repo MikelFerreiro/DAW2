@@ -1,0 +1,19 @@
+body{
+    background-color: darkgrey;
+}
+h1{
+    color:steelblue;
+}
+p::first-line{
+    color:orangered;
+}
+
+.parrafo::first-letter{
+    font-family: 'Indie Flower';
+    font-size: 300%;
+    background-color: white;
+    float: left;
+    padding-right: 10px;
+    padding-left:  10px;
+    margin: 5px;
+}

@@ -1,0 +1,56 @@
+
+/**
+	* CSS Flexible Layout Module - Caja Flexible -
+*/
+section#viajes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+section.viajes-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+section.viajes-item img{
+    order: -1;
+}
+section.viajes-item h2{
+    align-self: flex-start;
+}
+section.viajes-item p{
+    align-self: flex-start;
+}
+section.viajes-item button{
+
+}
+.uno{
+    flex: 1;
+    order: 3;
+    background-color:lightblue;
+}
+.dos{
+    flex: 1;
+    order: 2;
+    background-color:lightgreen;;
+}
+.tres{
+    flex: 1;
+    order:1;
+    background-color: lightseagreen;
+}
+
+@media (max-width: 500px ) {
+    section#viajes{
+        flex-direction: column;
+    }
+    .uno{order: 1;}
+    .dos{order: 2;}
+    .tres{order:3;}
+
+    #cabecera{
+        display: none;
+    }
+}

@@ -1,0 +1,31 @@
+#titulo{
+    color: teal;
+}
+strong,a{
+    color:red;
+}
+.destacado,thead, tbody .especial, tbody strong{
+    color:orange;
+}
+#subtitulo,a em, caption{
+    color:blue;
+}
+p .especial{
+    color:purple;
+}
+tfoot{
+    color: red;
+}
+tbody{
+    color:green;
+}
+
+#especial{
+    color: fuchsia;
+}
+#adicional a{
+    color: green;
+}
+#adicional{
+    color: olive;
+}

@@ -1,0 +1,21 @@
+/*h1, a, div, p {
+	background: #ff8000;
+}*/
+
+div {
+	width: 20%;
+	background: #ff8000;
+	height: 80px; /*Normalmente no se pone la propiedad height, lo dejamos en 
+	base al contenido que tenga*/
+	margin: 20px 50px;
+	padding: 30px;
+	border: 10px solid #000; /*A la vez que vamos añadiendo border, margin y padding y si
+	queremos que siga teniendo 200 px de altura, deberemos tener en cuenta los valores
+	de border, margin y padding*/
+	/*display: inline-block; /*Para que un bloque se comporte como un elemento en linea
+	 (en este caso si queremos conseguir que se pongan uno detras de otro)*, pero luego
+	  deberiamos cambiar el valor de width a unidades absolutas. Si ponemos que sea inline,
+	  no podremos modificar la altura ni la anchura/*/
+}
+
+

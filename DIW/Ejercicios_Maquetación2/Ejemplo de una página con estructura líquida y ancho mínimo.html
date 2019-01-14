@@ -1,0 +1,147 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es"><head>
+    <title>Ejemplo de una página con estructura líquida y ancho mínimo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Andrés de la Paz">
+    <meta name="copyright" content="© 2010">
+    <style type="text/css">
+        div#total {                     /* ancho 762px */
+            border: maroon dashed 1px;
+            min-width: 650px;
+            }
+        div#cabeza {                    /* ancho 750px */
+            border: red solid 1px;
+            padding: 0.67%;             /* 5px/750px = 0.0067 */
+            }
+        div#lateral {
+            width: 13.12%;              /* 100px/762px = 0.1312 */
+            height: 100%;
+            padding: 0.67%;             /* 5px/750px = 0.0067 */
+            float: left;
+            border: blue solid 1px;
+            }
+        div#lateral ul{
+            padding-left: 16%;         /* 16px/100px = 0.16 */
+            border: green dotted 1px;
+            }
+        div#lateral ul li {
+            margin-left: 0;
+            }
+        div#contenido {
+            margin-left: 14.70%;        /* 112px/762px = 0.1470 */
+            padding: 0.67%;             /* 5px/750px = 0.0067 */
+            border: green solid 1px;
+            }
+        div#contenido p {
+            text-align: justify;
+            }
+        div#pie {                       /* ancho 750px */
+            padding: 0.67%;             /* 5px/750px = 0.0067 */
+            border: red solid 1px;
+            }
+        div.borra-flotacion {
+            clear: both;
+            }
+    </style>
+
+</head>
+<body>
+    <div id="total">
+	    <div id="cabeza">
+		    <a href="http://www.wextensible.com/"><img src="Ejemplo%20de%20una%20p%C3%A1gina%20con%20estructura%20l%C3%ADquida%20y%20ancho%20m%C3%ADnimo_files/wextensible.gif" style="border: gray solid 1px;" alt="wextensible" title="www.wextensible.com" height="40" width="41"></a>
+	        TITULO DE LA PÁGINA
+	    </div>
+	    <div id="lateral">
+	        <ul>
+                <li id="vinculo1"><a href="#vinculo1">Vínculo 1</a></li>
+                <li id="vinculo2"><a href="#vinculo2">Vínculo 2</a></li>
+                <li id="vinculo3"><a href="#vinculo3">Vínculo 3</a></li>
+	        </ul>
+	    </div>
+	    <div id="contenido">
+	        <h2>Ejemplo 2 de una página con estructura líquida y ancho mínimo</h2>
+            
+            <p>Esto es un ejemplo de la teoría sobre <b>estructura de una
+            página web,</b> en su apartado sobre
+            <a href="http://www.wextensible.com/como-se-hace/estructura-pagina-web/fijas-liquidas-elasticas.html#ejemplo-pagina-liquida-2">página líquida</a>.
+            </p>
+
+	
+	        <h3>Contenido de la página</h3>
+	
+            <p>(Esto es parte del contenido incluido en la teoría del apartado
+            señalado)</p>
+    
+            <p>Cuando disponemos de un elemento de bloque como el que antes usamos
+            <code>&lt;div id="total"&gt;</code> y no especificamos nada acerca de su ancho
+            en la propiedad <code>width,</code> el navegador aplica el valor <b>auto.</b> 
+            Entonces el ancho viene determinado por el contenedor donde está
+            alojado ese marco el cuál es el elemento <code>&lt;body&gt;</code>, que a su 
+            vez se aloja en la ventana <code>&lt;html&gt;.</code> Así que el ancho de nuestro
+            elemento <code>&lt;div id="total"&gt;</code> será siempre el de la ventana,
+            restando los márgenes de 8px del elemento <code>&lt;body&gt;</code>.
+            Esto quiere decir que el ancho del marco <b>total</b> se ajustará siempre al tamaño
+            de la ventana, por lo que si además hacemos uso de las <b>medidas relativas en
+            porcentajes</b> para los marcos que se ajustan horizontalmente como el <b>lateral</b>
+            y <b>contenido,</b> podríamos conseguir que todo se reajuste también al
+            <b>tamaño de la ventana.</b>
+            </p>
+            
+            <p>
+            El ajuste de los marcos se produce con el cambio del ancho de la ventana,
+            de tal forma que si este ancho es muy reducido puede deformar el contenido de
+            algún lateral muy estrecho. Esto se puede arreglar incorporando la propiedad
+            <code>min-width</code> al marco total, como podrá ver en este ejemplo,
+            que es la misma página a excepción de incorporar
+            <code>min-width: 650px;</code> en el estilo de <code>div#total</code>.
+            Sin embargo es necesario especificar una medida absoluta, porque las relativas
+            en porcentajes se expresan en referencia al ancho del contenedor cuando 
+            ese ancho queda también expresamente declarado con una medida absoluta. En otro
+            caso los porcentajes declarados en el ancho mínimo no funcionarán. Por lo tanto
+            es un grave contratiempo pues todo es líquido menos el ancho mínimo.
+            </p>
+            
+            <p>Con versiones de Internet Explorer anteriores a la 8 encontramos que
+            no implementan la propiedad <code>min-width,</code> aunque hay una forma
+            de resolverlo. Se trata de poner en <code>div#total</code> el ancho
+            como una expresión
+            <code>width: expression(body.clientWidth &lt; 650 ? "650px" : "auto")</code>
+            aunque más bien parece un parche y puede dar problemas de todas formas.
+            Con IE8 puede probar emulando IE7 poniendo
+            <code>&lt;meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /&gt;</code>
+            dentro del <code>&lt;head&gt;</code> de la página.
+            </p>
+            
+            <p>Veamos las siguientes consideraciones finales de la estructura líquida:</p>
+            <ul>
+                <li><b>Los porcentajes no se aplican a los bordes</b>, lo que da lugar
+                a diferencias de ajuste si usamos bordes gruesos en los marcos.
+                </li>
+                <li><b>Dificultad para controlar el ancho mínimo.</b> Aunque existen
+                soluciones para esto, no deja de suponer un contratiempo.
+                </li>
+                <li><b>Problemas con el ampliador de texto del navegador:</b>
+                Si el navegador incorpora un ajuste de tamaño de texto independiente del
+                "zoom", cuando el texto seleccionado es muy grande y la ventana muy pequeña,
+                el texto puede desbordar los anchos de los marcos produciéndose saltos de
+                línea no deseados.
+                </li>
+                <li><b>Perfecto para el zoom del navegador:</b>
+                Para un tamaño de texto sin alterar, el zoom funciona a la perfección,
+                modificando el tamaño de los marcos sin alterar las proporciones.
+                </li>
+                
+            </ul>
+	
+	    </div>
+	    <div class="borra-flotacion"></div>
+	    <div id="pie">
+	        Este es el pie de página
+	    </div>
+    </div>
+
+</body></html>

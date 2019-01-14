@@ -1,0 +1,30 @@
+html{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: #ccc;
+}
+h1{
+    color: #390;
+    font-size: 24px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+h2{
+    color: #390;
+    font-size: 16px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.p1{
+    text-align: justify;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.p2{
+    text-align: justify;
+    margin-right: 20px;
+    margin-left: 30px;
+}

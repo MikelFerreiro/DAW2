@@ -1,0 +1,48 @@
+*{
+	box-sizing: border-box;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+body{
+	background-color: gray;
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+main{
+	background-color: lightgray;
+	padding: 10px;
+	width: 600px;
+	display: flex;
+	flex-wrap: wrap;
+}
+header{
+	background-color:white;
+	font-size: 15px;
+	padding: 10px;
+	text-align: center;
+	flex: 1 1 100%;
+}
+article{
+	background-color: aqua;
+	padding: 20px;
+	width: 70%;
+}
+aside{
+	background-color: darkblue;
+	padding: 20px;
+	width:30%;
+}
+
+@media (max-width: 400px){
+	article,aside{
+		flex-basis: 100%;
+	}
+	main{
+		flex-basis: 100%;
+	}
+}

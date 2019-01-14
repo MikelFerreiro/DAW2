@@ -1,0 +1,18 @@
+body{
+  font-family: Arial,Verdana;
+}
+h1,h2{
+  font-family: Georgia;
+  font-size: 32px;
+  font-variant: normal;
+}
+h2{
+  font-size:24px !important;
+  font-style: italic;
+}
+li{
+  font-weight: bold;
+}
+strong{
+  font-weight: normal;
+}

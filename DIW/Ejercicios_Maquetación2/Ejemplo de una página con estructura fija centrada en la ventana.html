@@ -1,0 +1,164 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es"><head>
+    <title>Ejemplo de una página con estructura fija centrada en la ventana</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Andrés de la Paz">
+    <meta name="copyright" content="© 2010">
+    <style type="text/css">
+        div#total {
+            width: 762px;
+            margin: auto;
+            border: maroon dashed 1px;
+            }
+        div#cabeza {
+            border: red solid 1px;
+            padding: 5px;
+            }
+        div#lateral {
+            width: 100px;
+            height: 100%;
+            padding: 5px;
+            float: left;
+            border: blue solid 1px;
+            }
+        div#lateral ul{
+            padding-left: 16px;
+            border: green dotted 1px;
+            }
+        div#lateral ul li {
+            margin-left: 0;
+            }
+        div#contenido {
+            margin-left: 112px;
+            padding: 5px;
+            border: green solid 1px;
+            }
+        div#contenido p {
+            text-align: justify;
+            }
+        div#pie {
+            padding: 5px;
+            border: red solid 1px;
+            }
+        div.borra-flotacion {
+            clear: both;
+            }
+    </style>
+
+</head>
+<body>
+    <div id="total">
+	    <div id="cabeza">
+		    <a href="http://www.wextensible.com/"><img src="Ejemplo%20de%20una%20p%C3%A1gina%20con%20estructura%20fija%20centrada%20en%20la%20ventana_files/wextensible.gif" style="border: gray solid 1px;" alt="wextensible" title="www.wextensible.com" height="40" width="41"></a>
+	        TITULO DE LA PÁGINA
+	    </div>
+	    <div id="lateral">
+	        <ul>
+                <li id="vinculo1"><a href="#vinculo1">Vínculo 1</a></li>
+                <li id="vinculo2"><a href="#vinculo2">Vínculo 2</a></li>
+                <li id="vinculo3"><a href="#vinculo3">Vínculo 3</a></li>
+	        </ul>
+	    </div>
+	    <div id="contenido">
+	        <h2>Ejemplo 2 de una página con estructura fija centrada en la ventana</h2>
+
+            <p>EEsto es un ejemplo de la teoría sobre <b>estructura de una
+            página web,</b> en su apartado sobre
+            <a href="http://www.wextensible.com/como-se-hace/estructura-pagina-web/fijas-liquidas-elasticas.html#ejemplo-pagina-fija-2">página fija</a>.
+            </p>
+	
+	        <h3>Contenido de la página</h3>
+	
+            <p>(Esto es parte del contenido del apartado señalado donde se expone
+            la teoría de este ejemplo.)</p>
+            
+            
+    
+            <p>En las estructuras <b>fijas</b> las dimensiones de los marcos, especialmente
+            el ancho, se expresan en valores absolutos como <b>píxeles</b> de monitor.
+            Realmente no son del todo absolutos sino relativos a la resolución que
+            el usuario haya efectuado en el monitor tal como expusimos en el apartado anterior.
+            Supongamos que hacemos una página con una estructura que pueda acomodarse al
+            mínimo usual en todos los monitores: 800x600 píxeles.
+            </p>
+         
+            <p>Cuando decimos que una página tiene una <b>estructura fija</b> debemos
+            entender que su estructura se especifica con <b>dimensiones</b> fijas.
+            No debe confundirse con una <b>página con marcos CSS fijados</b> que vimos 
+            en el tema anterior, donde exponíamos un 
+            <a href="http://www.wextensible.com/temas/xhtml-css/css-posicion.html#marcos-pagina" target="_blank">
+            ejemplo</a> al respecto. En esa página lo que se fija es la <b>posición</b> 
+            de algunos de ellos, no sus dimensiones. De hecho una página con marcos CSS 
+            fijados (o no fijados) puede realizarse con estructura de dimensiones fijas, 
+            líquidas o elásticas.
+                 
+            </p>
+         
+            <p>Cuando la pantalla tiene más de 800 píxeles resultaría con una mejor
+            estética si todo el contenido apareciera centrado horizontalmente. 
+            No es difícil conseguirlo, siendo necesario encerrar todo lo que
+            hay en la página en otro marco <code>&lt;div id="total"&gt;</code>.
+            Le dotamos de un ancho igual que los anteriores de 762 píxeles medidos
+            por fuera del borde, con lo que el borde del marco "total" resulta
+            envolver todos los demás marcos. Además esta posibilidad nos da la ventaja
+            de no tener que declarar los anchos de los marcos interiores a excepción
+            del lateral. Esto es porque los marcos se extienden a la derecha hasta 
+            ocupar toda la longitud del marco <b>total</b> que los contiene, marco que
+            si tiene un ancho especificado.         
+            </p>            
+            
+            <p>Particularmente considero que son muchas las desventajas de la
+            estructura fija. Veamos algunas consideraciones:
+            </p>
+            
+            <ul>
+                <li><b>Dependiente del monitor:</b>
+                Para pantallas con resolución inferior a 800 píxeles de ancho, el contenido
+                a la derecha necesitara del <i>scroll</i> horizontal para acceder al mismo.
+                Para pantallas con resolución muy superior a esos 800 píxeles, el ancho
+                de página se reducirá demasiado resultando poco estético. Es más común
+                este último caso pues la tendencia es usar mayores resoluciones de
+                pantalla para poder "meter más cosas", dado que los actuales monitores
+                lo permiten.
+                </li>    
+                <li><b>Demasiados cálculos:</b>
+                Hay que controlar demasiados parámetros para conseguir que todo ajuste. 
+                Si por alguna razón modificamos el ancho inicial a otro valor diferente a 
+                800 píxeles tendríamos que recalcular todo otra vez. Si se modifica algún 
+                <code>padding</code> o <code>margin</code> que afecte a la estructura, el 
+                esquema se nos vendrá abajo. 
+                </li>
+                <li><b>Laterales nada flexibles:</b>
+                Si más tarde agregamos otro lateral derecho tendríamos que recalcular gran
+                parte del esquema. Esto nos obliga a tener que establecer de entrada cuántos
+                laterales queremos y sus anchos. No resultará fácil crear un esquema para 
+                luego construir páginas con cero, uno o dos laterales, algo que si es posible
+                con las estructuras no fijas, incluso usando laterales de distinto ancho.
+                </li>
+                <li><b>Problemas al ampliar texto con el navegador:</b>
+                Los navegadores actuales como Explorer 8, Firefox 3.5, Opera 10.5 y Safari 4.0
+                dan la posibilidad de aumentar o disminuir el tamaño de la página de dos 
+                formas. Bien actuando sólo sobre el texto y/o haciendo un "zoom" en todo
+                el contenido. Con la estructura fija cuando ampliamos mucho el texto no 
+                podremos controlar que no sobrepase el ancho fijo que se haya especificado.
+                </li>
+                <li><b>Funciona bien con el zoom del navegador:</b>
+                Aunque también es cierto que si el zoom se aplica sobre todo el contenido
+                entonces las medidas fijas también serán objeto de esa ampliación o 
+                reducción, no afectando por tanto al texto. 
+                </li>
+            </ul>   
+
+	
+	    </div>
+	    <div class="borra-flotacion"></div>
+	    <div id="pie">
+	        Este es el pie de página
+	    </div>
+    </div>
+
+</body></html>

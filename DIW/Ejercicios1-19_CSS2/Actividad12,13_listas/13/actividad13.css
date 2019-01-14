@@ -1,0 +1,16 @@
+
+li{
+    background-color: blue;
+    width: 8em;
+    margin:1em;
+    list-style: none;
+    text-align: center;
+}
+li a{
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+li:hover{
+    border:2px solid red;
+}
