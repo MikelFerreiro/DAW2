@@ -1,0 +1,38 @@
+{% extends "layout.twig"%}
+{% block contenido%}
+    <form class="row" action="index.php">
+        <a name="annadir" class="btn btn-warning" href="index.php?controller=locales">Gestionar locales</a>
+        <h3 style="color: red;" class="text-center">{{ mensaje?:'' }}</h3>
+        <table class="table table-striped" >
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Local</th>
+                <th scope="col">Descripción</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for evento in eventos %}
+                <tr>
+                    <th scope="row">{{  evento["nombreEvento"] }}</th>
+                    <td>{{  evento["TIPO"] }}</td>
+                    <td>{{ evento["FECHA"] }}</td>
+                    <td>{{ evento["nombreLocal"]}}</td>
+                    <td>
+                        <a tabindex="0" class="btn btn-outline-info" role="button" data-toggle="popover" data-trigger="focus" data-content="{{ evento["DESCRIPCION"]}}">Ver descripción</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+    <script type="text/javascript">$(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+        $('.popover-dismiss').popover({
+            trigger: 'focus'
+        })
+    </script>
+{%endblock%}

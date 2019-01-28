@@ -1,0 +1,38 @@
+{% extends "layout.twig"%}
+{% block contenido%}
+    <form class="row" action="index.php">
+        <a name="annadir" class="btn btn-warning" href="index.php?controller=Locales&action=cargar">Gestionar locales</a>
+        <h3 style="color: red;" class="text-center">{{ mensaje?:'' }}</h3>
+        <table class="table table-striped" >
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Dirección</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for local in locales %}
+                <tr>
+                    <th scope="row">{{  local["nombre"] }}</th>
+                    <td>{{  local["categoria"] }}</td>
+                    <td>{{ local["telefono"] }}</td>
+                    <td>{{ local["email"]}}</td>
+                    <td>
+                        <a tabindex="0" class="btn btn-outline-info" role="button" data-toggle="popover" data-trigger="focus" data-content="{{ local["direccion"]}}">Ver dirección</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+    <script type="text/javascript">$(function () {
+            $('[data-toggle="popover"]').popover()
+        });
+        $('.popover-dismiss').popover({
+            trigger: 'focus'
+        });
+    </script>
+{%endblock%}

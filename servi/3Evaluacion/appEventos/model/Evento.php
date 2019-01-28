@@ -1,0 +1,131 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: usuario
+ * Date: 21/01/2019
+ * Time: 17:19
+ */
+
+class Evento{
+
+    private $conexion;
+
+    private $idEvento;
+    private $nombre;
+    private $tipo;
+    private $fecha;
+    private $descripcion;
+
+    private $local;
+
+    public function __construct($conexion){
+        $this->conexion=$conexion;
+    }
+
+    public function getAll(){
+        $select=$this->conexion->prepare("SELECT ID_EVENTO,E.NOMBRE AS nombreEvento,TIPO,FECHA,DESCRIPCION,l.NOMBRE AS nombreLocal FROM EVENTOS E,LOCALES L WHERE E.ID_LOCAL=L.ID_LOCAL");
+        $select->execute();
+        $result=$select->fetchAll();
+
+         $this->conexion=null;
+         return $result;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdEvento()
+    {
+        return $this->idEvento;
+    }
+
+    /**
+     * @param mixed $idEvento
+     */
+    public function setIdEvento($idEvento): void
+    {
+        $this->idEvento = $idEvento;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param mixed $nombre
+     */
+    public function setNombre($nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * @param mixed $tipo
+     */
+    public function setTipo($tipo): void
+    {
+        $this->tipo = $tipo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * @param mixed $fecha
+     */
+    public function setFecha($fecha): void
+    {
+        $this->fecha = $fecha;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * @param mixed $descripcion
+     */
+    public function setDescripcion($descripcion): void
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocal()
+    {
+        return $this->local;
+    }
+
+    /**
+     * @param mixed $local
+     */
+    public function setLocal($local): void
+    {
+        $this->local = $local;
+    }
+
+
+}
