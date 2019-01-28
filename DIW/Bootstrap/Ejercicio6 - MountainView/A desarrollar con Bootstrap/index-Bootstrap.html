@@ -21,22 +21,20 @@
 <body>
   <!-- NAVBAR
 	================================================== -->
-  <div class="navbar-wrapper">
-    <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark navbar-static-top">
-        <a class="navbar-brand ml-3" href="#"><img src="img/logo.png" width="30" height="30"/></a>
+  <div class="navbar-wrapper ">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark navbar-static-top justify-content-center w-75 mx-auto">
+        <a class="navbar-brand d-flex w-50 mr-auto" href="#"><img src="img/logo.png" width="30" height="30"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="menu">
-          <nav class="navbar-nav ">
+        <div class="collapse navbar-collapse " id="menu">
+          <nav class="navbar-nav ml-auto w-100 justify-content-end">
             <a class="nav-link active" href="#">SERVICIOS</a>
             <a class="nav-link" href="#">SOBRE NOSOTROS</a>
             <a class="nav-link" href="#">CONTACTAR</a>
           </nav>
         </div>
       </nav>
-    </div>
   </div>
   <!-- CAROUSEL
   ================================================== -->
@@ -93,8 +91,8 @@
   
   <div class="marketing container justify-content-center" id="servicios">
     <div class="row">
-        <div class="card col-xs-12 col-sm-4 text-center border-0" >
-          <img src="img/alpes.jpeg" alt="Alpes" class="card-img-top img-responsive rounded-circle">
+        <div class="card col-12 col-md-4 text-center border-0" >
+          <img src="img/alpes.jpeg" alt="Alpes" class="card-img-top img-responsive img-circle rounded-circle">
           <div class="card-body">
             <h5 class="card-title">Alpes</h5>
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit, elementum habitasse convallis porttitor laoreet.</p>
@@ -102,7 +100,7 @@
           </div>
         </div>
 
-      <div class="card col-xs-12 col-sm-4 text-center border-0">
+      <div class="card col-12 col-md-4 text-center border-0">
         <img src="img/nepal.jpg" alt="Nepal" class="card-img-top img-responsive rounded-circle">
         <div class="card-body">
           <h5 class="card-title">Nepal</h5>
@@ -112,7 +110,7 @@
         </div>
       </div>
 
-      <div class="card col-xs-12 col-sm-4 text-center border-0">
+      <div class="card col-12 col-md-4 text-center border-0">
         <img src="img/pirineos.jpg" alt="Pirineos" class="card-img-top img-responsive rounded-circle">
         <div class="card-body">
           <h5 class="card-title">Pirineos</h5>
@@ -158,34 +156,34 @@
     <hr class="featurette-divider">
 
     <!--Formulario horizontal-->
-    <div class="col-4 col-md-offset-4 text-center">
-      <form >
-        <div class="form-group row">
-          <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-          <div class="col-sm-10">
+    <div class="container text-center" >
+      <form class="col-md-4 col col-sm-offset-4 ">
+        <div class="form-group row text-left">
+          <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
+          <div class="col-md-10">
             <input type="text" class="form-control" id="nombre" placeholder="Nombre">
           </div>
         </div>
-        <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
+        <div class="form-group row text-left">
+          <label for="email" class="col-md-2 col-form-label">Email</label>
+          <div class="col-md-10">
             <input type="email" class="form-control" id="email" placeholder="Email">
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-10 col-sm-offset-2 ">
+          <div class="col-md-10 col-sm-offset-2 ">
             <textarea class="form-control" id="comentario" rows="3"></textarea>
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-10">
+          <div class="col-md-10">
             <button type="submit" class="btn btn-primary">Enviar</button>
           </div>
         </div>
       </form>
     </div>
     <!-- FOOTER -->
-    <footer>
+    <footer class="container">
       <p class=""><a href="#">Back to top</a></p>
       <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
