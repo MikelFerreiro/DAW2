@@ -30,6 +30,10 @@ class Local{
         return $result;
     }
 
+    public function annadir(){
+
+    }
+
     /**
      * @return mixed
      */

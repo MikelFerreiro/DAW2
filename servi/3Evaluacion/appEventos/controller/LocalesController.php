@@ -19,4 +19,15 @@ class LocalesController extends indexController {
         $locales=$local->getAll();
         $this->render("locales",array("locales"=>$locales));
     }
+
+    public function annadirLocal(){
+        $local= new Local($this->conexion);
+        $local->setNombre($_POST["nombre"]);
+        $local->setCategoria($_POST["categoria"]);
+        $local->setDireccion($_POST["direccion"]);
+        $local->setTelefono($_POST["telefono"]);
+        $local->setEmail($_POST["email"]);
+
+
+    }
 }

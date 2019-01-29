@@ -1,7 +1,6 @@
 {% extends "layout.twig"%}
 {% block contenido%}
-    <form class="row" action="index.php">
-        <a name="annadir" class="btn btn-warning" href="index.php?controller=Locales&action=cargar">Gestionar locales</a>
+        <a class="btn btn-success float-right m-3" data-toggle="modal" data-target="#annadirLocal" name="annadir">Añadir local</a>
         <h3 style="color: red;" class="text-center">{{ mensaje?:'' }}</h3>
         <table class="table table-striped" >
             <thead>
@@ -11,6 +10,7 @@
                 <th scope="col">Teléfono</th>
                 <th scope="col">Email</th>
                 <th scope="col">Dirección</th>
+                <th scope="col" style="width: 15%">Edición</th>
             </tr>
             </thead>
             <tbody>
@@ -20,19 +20,62 @@
                     <td>{{  local["categoria"] }}</td>
                     <td>{{ local["telefono"] }}</td>
                     <td>{{ local["email"]}}</td>
+                    <td>{{ local["direccion"]}}</td>
                     <td>
-                        <a tabindex="0" class="btn btn-outline-info" role="button" data-toggle="popover" data-trigger="focus" data-content="{{ local["direccion"]}}">Ver dirección</a>
+                        <a name="editar" class="btn btn-outline-warning" href="index.php?controller=Locales&action=editar&idLocal={{ local.id_local }}">Editar</a>
+                        <a name="borrar" class="btn btn-outline-danger" href="index.php?controller=Locales&action=borrar&idLocal={{ local.id_local }}">borrar</a>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-    </form>
-    <script type="text/javascript">$(function () {
-            $('[data-toggle="popover"]').popover()
-        });
-        $('.popover-dismiss').popover({
-            trigger: 'focus'
-        });
-    </script>
+
+
+    <div class="modal fade" id="annadirLocal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Local</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" class="formularioPedido" action="index.php?controller=Locales&action=annadirLocal">
+                        <div class="col">
+                            <h3 style="color: red;" class="text-center">{{ mensaje?:'' }}</h3>
+                            <div class="row form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre">
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="categoria">Categoría</label>
+                                <input type="text" class="form-control" id="categoria" name="categoria">
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" name="direccion">
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="number" class="form-control" id="telefono" name="telefono">
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                        <button type="submit" class="btn btn-primary"> Añadir</button>
+                        <button type="button" class="btn btn-danger pl-4 pr-4 float-right" data-dismiss="modal">cancelar</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {%endblock%}
