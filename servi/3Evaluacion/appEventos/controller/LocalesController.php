@@ -27,7 +27,18 @@ class LocalesController extends indexController {
         $local->setDireccion($_POST["direccion"]);
         $local->setTelefono($_POST["telefono"]);
         $local->setEmail($_POST["email"]);
+        $mensaje="";
+        if(!$local->annadir()){
+            $mensaje="Ha ocurrido un error. El local no ha podido añadirse.";
+        }
+        $this->render("locales",array("locales"=>$local->getAll(),
+                                            "mensaje"=>$mensaje));
+    }
 
-
+    public function editarLocal(){
+        $local= new Local($this->conexion);
+        $local->setIdLocal($_GET["idLocal"]);
+        $local->getById();
+        $this->render("localDetalle",array("local"=>$local));
     }
 }

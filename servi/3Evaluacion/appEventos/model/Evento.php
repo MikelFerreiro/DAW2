@@ -16,7 +16,7 @@ class Evento{
     private $fecha;
     private $descripcion;
 
-    private $local;
+    private $idLocal;
 
     public function __construct($conexion){
         $this->conexion=$conexion;
@@ -31,6 +31,14 @@ class Evento{
          return $result;
     }
 
+    public function getAllByIdLocal(){
+        $select=$this->conexion->prepare("SELECT ID_EVENTO as idEvento,NOMBRE as nombre,TIPO as tipo,FECHA as fecha,DESCRIPCION as descripcion FROM EVENTOS WHERE ID_LOCAL=?");
+        $select->execute([$this->idLocal]);
+        $result=$select->fetchAll();
+
+        $this->conexion=null;
+        return $result;
+    }
     /**
      * @return mixed
      */
@@ -114,18 +122,20 @@ class Evento{
     /**
      * @return mixed
      */
-    public function getLocal()
+    public function getIdLocal()
     {
-        return $this->local;
+        return $this->idLocal;
     }
 
     /**
-     * @param mixed $local
+     * @param mixed $idLocal
      */
-    public function setLocal($local): void
+    public function setIdLocal($idLocal): void
     {
-        $this->local = $local;
+        $this->idLocal = $idLocal;
     }
+
+
 
 
 }

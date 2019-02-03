@@ -16,6 +16,8 @@ class Local{
     private $telefono;
     private $email;
 
+    private $eventos;
+
 
     public function __construct($conexion){
         $this->conexion=$conexion;
@@ -31,7 +33,34 @@ class Local{
     }
 
     public function annadir(){
+        $insert=$this->conexion->prepare("INSERT INTO LOCALES (NOMBRE, CATEGORIA, DIRECCION, TELEFONO, EMAIL) VALUES (:nombre,:categoria,:direccion,:telefono,:email)");
+        try{
+            $insert->execute(array(
+                "nombre"=>$this->nombre,
+                "categoria"=>$this->categoria,
+                "direccion"=>$this->direccion,
+                "telefono"=>$this->telefono,
+                "email"=>$this->email
+            ));
+        }catch (PDOException $e){
+            $this->conexion=null;
+            return false;
+        }
+        $this->conexion=null;
+        return true;
+    }
 
+    public function getById(){
+        $select=$this->conexion->prepare("SELECT * FROM LOCALES WHERE ID_LOCAL=?");
+        $select->execute([$this->idLocal]);
+        $result=$select->fetch(PDO::FETCH_ASSOC);
+            $this->idLocal=$result["ID_LOCAL"];
+            $this->nombre=$result["NOMBRE"];
+            $this->categoria=$result["CATEGORIA"];
+            $this->direccion=$result["DIRECCION"];
+            $this->telefono=$result["TELEFONO"];
+            $this->email=$result["EMAIL"];
+        $this->conexion=null;
     }
 
     /**
@@ -128,6 +157,22 @@ class Local{
     public function setEmail($email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEventos()
+    {
+        return $this->eventos;
+    }
+
+    /**
+     * @param mixed $eventos
+     */
+    public function setEventos($eventos): void
+    {
+        $this->eventos = $eventos;
     }
 
 

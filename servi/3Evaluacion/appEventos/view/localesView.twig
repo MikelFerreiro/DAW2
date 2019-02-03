@@ -22,8 +22,8 @@
                     <td>{{ local["email"]}}</td>
                     <td>{{ local["direccion"]}}</td>
                     <td>
-                        <a name="editar" class="btn btn-outline-warning" href="index.php?controller=Locales&action=editar&idLocal={{ local.id_local }}">Editar</a>
-                        <a name="borrar" class="btn btn-outline-danger" href="index.php?controller=Locales&action=borrar&idLocal={{ local.id_local }}">borrar</a>
+                        <a name="editar" class="btn btn-outline-warning" href="index.php?controller=Locales&action=editarLocal&idLocal={{ local.id_local }}">Editar</a>
+                        <a name="borrar" class="btn btn-outline-danger" href="index.php?controller=Locales&action=borrarLocal&idLocal={{ local.id_local }}">borrar</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -41,9 +41,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" class="formularioPedido" action="index.php?controller=Locales&action=annadirLocal">
+                    <form method="post" action="index.php?controller=Locales&action=annadirLocal">
                         <div class="col">
-                            <h3 style="color: red;" class="text-center">{{ mensaje?:'' }}</h3>
                             <div class="row form-group">
                                 <label for="nombre">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
