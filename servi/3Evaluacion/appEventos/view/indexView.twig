@@ -1,9 +1,32 @@
 {% extends "layout.twig"%}
 {% block contenido%}
-    <form class="row" action="index.php">
-        <a name="annadir" class="btn btn-warning" href="index.php?controller=locales">Gestionar locales</a>
+    <form action="index.php" class="row">
+        <a name="annadir" class="btn btn-warning mb-auto col-2" href="index.php?controller=locales">Gestionar locales</a>
         <h3 style="color: red;" class="text-center">{{ mensaje?:'' }}</h3>
-        <table class="table table-striped" >
+        <div class="col-2 offset-2">
+            <p><b>Filtrar eventos por:</b></p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="filtro" id="tipo" value="tipo" checked>
+                    <label class="form-check-label" for="tipo">
+                        Tipo de evento
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="filtro" id="local" value="local">
+                    <label class="form-check-label" for="local">
+                        Local
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="filtro" id="fecha" value="fecha">
+                    <label class="form-check-label" for="fecha">
+                        fecha
+                    </label>
+                </div>
+        </div>
+        <input type="text" class="form-control my-auto col-4" id="busqueda">
+        <button class="btn btn-primary my-auto" onclick="return filtrarEventos()">buscar</button>
+        <table id="tablaEventos" class="table table-striped" >
             <thead>
             <tr>
                 <th scope="col">Nombre</th>

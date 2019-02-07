@@ -16,7 +16,7 @@ class Evento{
     private $fecha;
     private $descripcion;
 
-    private $idLocal;
+    private $local;
 
     public function __construct($conexion){
         $this->conexion=$conexion;
@@ -33,12 +33,41 @@ class Evento{
 
     public function getAllByIdLocal(){
         $select=$this->conexion->prepare("SELECT ID_EVENTO as idEvento,NOMBRE as nombre,TIPO as tipo,FECHA as fecha,DESCRIPCION as descripcion FROM EVENTOS WHERE ID_LOCAL=?");
-        $select->execute([$this->idLocal]);
+        $select->execute([$this->local]);
         $result=$select->fetchAll();
 
         $this->conexion=null;
         return $result;
     }
+
+    public function getAllByTipo(){
+        $select=$this->conexion->prepare("SELECT E.NOMBRE AS nombreEvento, tipo, fecha, descripcion,l.NOMBRE AS nombreLocal FROM EVENTOS E,LOCALES L WHERE E.ID_LOCAL=L.ID_LOCAL AND TIPO = ?");
+        $select->execute([$this->tipo]);
+        $result=$select->fetchAll();
+
+        $this->conexion=null;
+        return $result;
+    }
+
+    public function getAllByLocal(){
+        $select=$this->conexion->prepare("SELECT E.NOMBRE AS nombreEvento,tipo, fecha, descripcion,l.NOMBRE AS nombreLocal FROM EVENTOS E,LOCALES L WHERE E.ID_LOCAL=L.ID_LOCAL AND E.ID_LOCAL = (SELECT ID_LOCAL FROM LOCALES WHERE NOMBRE LIKE ?)");
+        $select->execute([$this->local]);
+        $result=$select->fetchAll();
+
+        $this->conexion=null;
+        return $result;
+    }
+
+    public function getAllByFecha(){
+        $select=$this->conexion->prepare("SELECT E.NOMBRE AS nombreEvento,tipo, fecha, descripcion,l.NOMBRE AS nombreLocal FROM EVENTOS E,LOCALES L WHERE E.ID_LOCAL=L.ID_LOCAL AND FECHA = ?");
+        $select->execute([$this->fecha]);
+        $result=$select->fetchAll();
+
+        $this->conexion=null;
+        return $result;
+    }
+
+
     /**
      * @return mixed
      */
@@ -122,17 +151,17 @@ class Evento{
     /**
      * @return mixed
      */
-    public function getIdLocal()
+    public function getLocal()
     {
-        return $this->idLocal;
+        return $this->local;
     }
 
     /**
-     * @param mixed $idLocal
+     * @param mixed $local
      */
-    public function setIdLocal($idLocal): void
+    public function setLocal($local): void
     {
-        $this->idLocal = $idLocal;
+        $this->local = $local;
     }
 
 
